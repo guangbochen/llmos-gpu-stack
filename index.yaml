@@ -2,6 +2,37 @@ apiVersion: v1
 entries:
   llmos-gpu-stack:
   - apiVersion: v2
+    appVersion: v0.1.0-rc7
+    created: "2024-11-02T15:41:36.813730236Z"
+    dependencies:
+    - condition: gpuOperator.enabled
+      name: gpu-operator
+      repository: https://helm.ngc.nvidia.com/nvidia
+      tags:
+      - gpu-operator
+      - nvidia
+      version: v24.6.2
+    - condition: hami.enabled
+      name: hami
+      repository: https://project-hami.github.io/HAMi
+      tags:
+      - hami
+      - vGPU manager
+      version: 2.4.0
+    - condition: volcano.enabled
+      name: volcano
+      repository: https://volcano-sh.github.io/helm-charts
+      tags:
+      - gang-scheduling
+      version: 1.10.0
+    description: LLMOS GPU Stack helm chart
+    digest: c33dd5ecfa422d58c8025846fc10dd65358c0b0039068e274d7b86153fe9f059
+    name: llmos-gpu-stack
+    type: application
+    urls:
+    - https://github.com/guangbochen/llmos-gpu-stack/releases/download/llmos-gpu-stack-0.1.0-rc7/llmos-gpu-stack-0.1.0-rc7.tgz
+    version: 0.1.0-rc7
+  - apiVersion: v2
     appVersion: v0.1.0-rc6
     created: "2024-11-02T14:52:41.722614712Z"
     dependencies:
@@ -34,6 +65,16 @@ entries:
     version: 0.1.0-rc6
   llmos-gpu-stack-crd:
   - apiVersion: v2
+    appVersion: v0.1.0-rc7
+    created: "2024-11-02T15:41:36.948181061Z"
+    description: A Helm chart for installing llmos-gpu-stack CRDs
+    digest: 782a08e7264fa8d6678e8fcf0d72ffa3bf4aa4c424210ea4f1812ee1b14a85c0
+    name: llmos-gpu-stack-crd
+    type: application
+    urls:
+    - https://github.com/guangbochen/llmos-gpu-stack/releases/download/llmos-gpu-stack-crd-0.1.0-rc7/llmos-gpu-stack-crd-0.1.0-rc7.tgz
+    version: 0.1.0-rc7
+  - apiVersion: v2
     appVersion: v0.1.0-rc6
     created: "2024-11-02T14:52:41.808293788Z"
     description: A Helm chart for installing llmos-gpu-stack CRDs
@@ -43,4 +84,4 @@ entries:
     urls:
     - https://github.com/guangbochen/llmos-gpu-stack/releases/download/llmos-gpu-stack-crd-0.1.0-rc6/llmos-gpu-stack-crd-0.1.0-rc6.tgz
     version: 0.1.0-rc6
-generated: "2024-11-02T14:52:41.808303195Z"
+generated: "2024-11-02T15:41:36.948210456Z"
