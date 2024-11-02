@@ -4,4 +4,7 @@ set -e
 cd $(dirname $0)
 
 ./build
+## Upload to s3 if enabled
+if [[ "$UPLOAD_TO_S3" == "true" ]]; then
 ./upload
+fi

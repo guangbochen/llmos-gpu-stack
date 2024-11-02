@@ -1,0 +1,46 @@
+name: release
+
+concurrency:
+  group: release
+  cancel-in-progress: true
+
+on:
+  push:
+    tags:
+    - v*
+
+permissions:
+  contents: write
+  packages: write
+
+env:
+  REGISTRY: ${{ vars.REGISTRY || 'ghcr.io/llmos-ai' }}
+  DOCKER_REGISTRY: ${{ vars.DOCKER_REGISTRY || 'docker.io/llmosai' }}
+
+jobs:
+  release-charts:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - name: Install Helm
+        uses: azure/setup-helm@v4
+        env:
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Run build llmos-gpu-stack charts
+        run: make package-charts
+      - name: Run chart-releaser
+        uses: guangbochen/chart-releaser-action@main
+        with:
+          charts_dir: dist/charts
+          skip_packaging: true
+        env:
+          CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CR_PACKAGE_PATH: dist/charts

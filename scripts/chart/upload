@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-echo "--- Uploading operator charts to S3 ---"
+echo "--- Uploading gpu-stack charts to S3 ---"
 
 UPLOAD_CHARTS=${UPLOAD_CHARTS:-}
 
@@ -15,7 +15,7 @@ TOP_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )/../.." &> /dev/null && pwd )"
 cd "${TOP_DIR}"
 . ./scripts/version
 
-CHART_DIST_DIR=${CHART_DIST_DIR:-dist/llmos-charts}
+CHART_DIST_DIR=${CHART_DIST_DIR:-dist/charts}
 AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID:-}
 AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY:-}
 AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION:-us-east-1}
@@ -39,7 +39,7 @@ if [[ -z "$CHART_REPO" ]]; then
   exit 1
 fi
 
-echo "Uploading charts and index.yaml in ${CHART_DIST_DIR} to ${S3_BUCKET_NAME}/charts/${CHART_REPO}"
-aws s3 cp "$CHART_DIST_DIR" "s3://${S3_BUCKET_NAME}/charts/${CHART_REPO}" --recursive
+echo "Uploading charts and index.yaml in ${CHART_DIST_DIR} to ${S3_BUCKET_NAME}/gpu-stack-charts/${CHART_REPO}"
+aws s3 cp "$CHART_DIST_DIR" "s3://${S3_BUCKET_NAME}/gpu-stack-charts/${CHART_REPO}" --recursive
 
-echo "Uploading llmos-operator charts completed successfully."
+echo "Uploading gpu-stack charts completed successfully."

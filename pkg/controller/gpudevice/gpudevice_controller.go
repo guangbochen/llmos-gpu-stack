@@ -99,7 +99,7 @@ func (h *gpuHandler) gpuDeviceOnChange(_ string, gpuDevice *gpustackv1.GPUDevice
 		deviceList = append(deviceList, devices...)
 	}
 
-	var podList []gpustackv1.GPUPod
+	var podList = make([]gpustackv1.GPUPod, 0)
 
 	for _, device := range deviceList {
 		podList = append(podList, gpustackv1.GPUPod{

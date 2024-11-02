@@ -38,7 +38,7 @@ func (h *podHandler) onGpuPodChange(_ string, pod *corev1.Pod) (*corev1.Pod, err
 		return pod, nil
 	}
 
-	if err = h.syncGPUDeviceStatus(devices, pod); err != nil {
+	if err = h.syncGPUDeviceStatus(devices); err != nil {
 		return pod, nil
 	}
 
@@ -59,7 +59,7 @@ func (h *podHandler) onGpuPodChange(_ string, pod *corev1.Pod) (*corev1.Pod, err
 	return pod, nil
 }
 
-func (h *podHandler) syncGPUDeviceStatus(devices []GPUDevice, pod *corev1.Pod) error {
+func (h *podHandler) syncGPUDeviceStatus(devices []GPUDevice) error {
 	for _, dev := range devices {
 		deviceName := getDeviceName(dev.UUID)
 		_, err := h.gpuDeviceCache.Get(deviceName)

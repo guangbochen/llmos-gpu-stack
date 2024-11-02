@@ -1,0 +1,6 @@
+gpuStack:
+  deviceManager:
+    replicas: 1
+    image:
+      repository: ghcr.io/llmos-ai/llmos-gpu-stack
+      pullPolicy: IfNotPresent
