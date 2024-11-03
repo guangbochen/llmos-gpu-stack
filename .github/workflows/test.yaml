@@ -66,4 +66,5 @@ jobs:
     - name: Run chart-testing (install)
       run: |
         ./scripts/version
-        ct install --target-branch ${{ github.event.repository.default_branch }} --helm-extra-set-args "--set gpuStack.deviceManager.image.tag=${{ env.TAG }}"
+        ct install --target-branch ${{ github.event.repository.default_branch }} --charts llmos-gpu-stack-crd
+        ct install --target-branch ${{ github.event.repository.default_branch }} --charts llmos-gpu-stack --helm-extra-set-args "--set gpuStack.deviceManager.image.tag=${{ env.TAG }}"
