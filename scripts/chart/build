@@ -91,7 +91,9 @@ helm package ${gpu_stack_chart_path} -d ${CHART_DIST_DIR} || true
 #helm repo index --merge "${CHART_DIST_DIR}"/index.yaml ${CHART_DIST_DIR} || true
 
 # Clean up the build
-rm -rf ${gpu_stack_crd_chart_path} ${gpu_stack_chart_path}
-rm -rf ${CHART_DIST_DIR}/system-charts
+if [[ "$CLEAN_UP_CHARTS" == "true" ]]; then
+  rm -rf "${gpu_stack_crd_chart_path}" "${gpu_stack_chart_path}"
+  rm -rf "${CHART_DIST_DIR}/system-charts"
+fi
 
 echo "Build llmos-gpu-stack charts completed successfully."

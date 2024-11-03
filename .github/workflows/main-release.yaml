@@ -44,3 +44,4 @@ jobs:
         env:
           CR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CR_PACKAGE_PATH: dist/charts
+          CLEAN_UP_CHARTS: "true"
