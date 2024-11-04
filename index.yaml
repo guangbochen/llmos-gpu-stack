@@ -156,6 +156,39 @@ entries:
     urls:
     - https://github.com/guangbochen/llmos-gpu-stack/releases/download/llmos-gpu-stack-0.1.0-rc6/llmos-gpu-stack-0.1.0-rc6.tgz
     version: 0.1.0-rc6
+  - apiVersion: v2
+    appVersion: v0.1.0-rc1
+    created: "2024-11-04T02:59:06.441123662Z"
+    dependencies:
+    - condition: gpuOperator.enabled
+      name: gpu-operator
+      repository: https://helm.ngc.nvidia.com/nvidia
+      tags:
+      - gpu-operator
+      - nvidia
+      version: v24.6.2
+    - condition: hami.enabled
+      name: hami
+      repository: https://project-hami.github.io/HAMi
+      tags:
+      - hami
+      - vGPU manager
+      version: 2.4.0
+    - condition: volcano.enabled
+      name: volcano
+      repository: https://volcano-sh.github.io/helm-charts
+      tags:
+      - gang-scheduling
+      version: 1.10.0
+    description: LLMOS GPU Stack helm chart
+    digest: f621d93b86d6ae3fbba518f3228de9b3b0edb42b9083793d52bfb5814cae7f39
+    maintainers:
+    - name: llmos-ai
+    name: llmos-gpu-stack
+    type: application
+    urls:
+    - https://github.com/guangbochen/llmos-gpu-stack/releases/download/llmos-gpu-stack-0.1.0-rc1/llmos-gpu-stack-0.1.0-rc1.tgz
+    version: 0.1.0-rc1
   llmos-gpu-stack-crd:
   - apiVersion: v2
     appVersion: v0.1.0
@@ -207,4 +240,16 @@ entries:
     urls:
     - https://github.com/guangbochen/llmos-gpu-stack/releases/download/llmos-gpu-stack-crd-0.1.0-rc6/llmos-gpu-stack-crd-0.1.0-rc6.tgz
     version: 0.1.0-rc6
-generated: "2024-11-03T01:01:51.288013909Z"
+  - apiVersion: v2
+    appVersion: v0.1.0-rc1
+    created: "2024-11-04T02:59:06.52397264Z"
+    description: A Helm chart for installing llmos-gpu-stack CRDs
+    digest: a2e6547e6cb1cc294889c225a5c9447d9a37892ca508d1783e21b108900b744e
+    maintainers:
+    - name: llmos-ai
+    name: llmos-gpu-stack-crd
+    type: application
+    urls:
+    - https://github.com/guangbochen/llmos-gpu-stack/releases/download/llmos-gpu-stack-crd-0.1.0-rc1/llmos-gpu-stack-crd-0.1.0-rc1.tgz
+    version: 0.1.0-rc1
+generated: "2024-11-04T02:59:06.524026771Z"
