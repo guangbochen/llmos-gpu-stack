@@ -157,6 +157,45 @@ entries:
     - https://github.com/guangbochen/llmos-gpu-stack/releases/download/llmos-gpu-stack-0.1.0-rc6/llmos-gpu-stack-0.1.0-rc6.tgz
     version: 0.1.0-rc6
   - apiVersion: v2
+    appVersion: v0.1.0-rc2
+    created: "2024-11-11T04:57:10.381100411Z"
+    dependencies:
+    - condition: gpuOperator.enabled
+      name: gpu-operator
+      repository: https://helm.ngc.nvidia.com/nvidia
+      tags:
+      - gpu-operator
+      - nvidia
+      version: v24.6.2
+    - condition: hami.enabled
+      name: hami
+      repository: https://project-hami.github.io/HAMi
+      tags:
+      - hami
+      - vGPU manager
+      version: 2.4.0
+    - condition: volcano.enabled
+      name: volcano
+      repository: https://volcano-sh.github.io/helm-charts
+      tags:
+      - gang-scheduling
+      version: 1.10.0
+    - condition: crds.enabled
+      name: crds
+      repository: ""
+      tags:
+      - crds
+      version: 0.1.0
+    description: LLMOS GPU Stack helm chart
+    digest: a954dda388be2e578b704f189cd22d7a6f37f28b8e03cc7e503f20bedd5fbada
+    maintainers:
+    - name: llmos-ai
+    name: llmos-gpu-stack
+    type: application
+    urls:
+    - https://github.com/guangbochen/llmos-gpu-stack/releases/download/llmos-gpu-stack-0.1.0-rc2/llmos-gpu-stack-0.1.0-rc2.tgz
+    version: 0.1.0-rc2
+  - apiVersion: v2
     appVersion: v0.1.0-rc1
     created: "2024-11-04T02:59:06.441123662Z"
     dependencies:
@@ -252,4 +291,4 @@ entries:
     urls:
     - https://github.com/guangbochen/llmos-gpu-stack/releases/download/llmos-gpu-stack-crd-0.1.0-rc1/llmos-gpu-stack-crd-0.1.0-rc1.tgz
     version: 0.1.0-rc1
-generated: "2024-11-04T02:59:06.524026771Z"
+generated: "2024-11-11T04:57:10.381149933Z"
